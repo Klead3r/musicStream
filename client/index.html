@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Music Streamer</title>
+        <style>
+            #audio {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+            }
+            #songs {
+                position: fixed;
+                height: 100%;
+                top: 0;
+                left: 0;
+                width: 75%;
+                display: inline-block;
+            }
+            #songs__list {
+                position: relative;
+                width: 100%;
+            }
+            #downloader {
+                position: fixed;
+                height: 100%;
+                top: 0;
+                right: 0;
+                width: 25%;
+                display: inline-block;
+                text-align: center;
+            }
+            .playSong {
+                padding: 10px 5px;
+                border: 1px solid #000;
+                cursor: pointer;
+            }
+            .playSong.playSong__selected {
+                background: #000;
+                color: #fff;
+            }
+            #dlStatus {
+                display: block;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div id="songs">
+                <div>
+                    <button onclick="getSongs()">Refresh</button>
+                </div>
+                <div id="songs__list"></div>
+            </div>
+            <div id="downloader">
+                <input id="ytId" type="text" placeholder="write youtube id...">
+                <button onclick="downloadFromYoutube()">Download</button>
+                <div id="dlStatus"></div>
+            </div>
+            <audio id="audio" controls>
+                <source id="musicSource" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <script src="js/index.js"></script>
+    </body>
+</html>
