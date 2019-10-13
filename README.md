@@ -1,3 +1,3 @@
 # musicStream
 
-Stream music with node.
+Download from youtube and stream music with node.
