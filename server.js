@@ -18,7 +18,7 @@ app.post('/dlYt/:id', (req, res) => {
     var arg = query.id
     var YoutubeMp3Downloader = require('youtube-mp3-downloader')
     var YD = new YoutubeMp3Downloader ({
-        'ffmpegPath': 'ffmpeg/bin/ffmpeg.exe', // Where is the FFmpeg binary located?
+        'ffmpegPath': process.platform === 'win32' ? 'ffmpeg/bin/ffmpeg.exe' : 'ffmpeg/bin/ffmpeg', // Where is the FFmpeg binary located?
         'outputPath': 'music', // Where should the downloaded and encoded files be stored?
         'youtubeVideoQuality': 'highest', // What video quality should be used?
         'queueParallelism': 2, // How many parallel downloads/encodes should be started?
@@ -74,6 +74,6 @@ app.get('/play/:name', function(req, res) {
     }
 })
 
-app.listen(80, function () {
-    console.log('App is running on port 80')
+app.listen(8080, function () {
+    console.log('App is running on port 8080')
 })
